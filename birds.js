@@ -14,7 +14,7 @@ export function animateBirds(onComplete){
     progress = Math.min(progress,1); const eased=1-Math.pow(1-progress,3);
     const p0={x:innerWidth*0.3, y:innerHeight*0.5}, p1={x:innerWidth*0.4, y:innerHeight*0.15}, p2={x:innerWidth*0.9, y:innerHeight*-0.1};
     const leaderX = Math.pow(1-eased,2)*p0.x + 2*(1-eased)*eased*p1.x + Math.pow(eased,2)*p2.x;
-    const leaderY = Math.pow(1-eased,2)*p0.y + 2*(1-eased)*eased*p1.y + Math.pow(1-eased,2)*p2.y;
+    const leaderY = Math.pow(1-eased,2)*p0.y + 2*(1-eased)*eased*p1.y + Math.pow(eased,2)*p2.y;
     const scale = 1.0 - (eased * 0.7);
     birds.forEach((b,i)=>{ if(progress>0.01 && b.el.style.opacity!=='1') b.el.style.opacity='1';
       const wt=elapsed/1000*b.wobbleSpeed; const dx=Math.sin(wt+i)*b.wobbleX; const dy=Math.cos(wt+i)*b.wobbleY;
